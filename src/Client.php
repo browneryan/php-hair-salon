@@ -1,6 +1,6 @@
 <?php
-	 class Client
-		{
+	//  class Client
+		// {
 		// private property;
 		//
 		//  function getProperty(){
@@ -10,5 +10,5 @@
 		// function setProperty(){
 		// 	$this->property = $property;
 		// }
-	}
+	// }
  ?>

@@ -1,22 +1,33 @@
 <?php
 
+	/**
+	* @backupGlobals disabled
+	* @backupStaticAttributes disabled
+	*/
+
 	require_once 'src/Stylist.php';
+
+	$server = 'mysql:host=localhost;dbname=hair_salon_test';
+	$username = 'root';
+	$password = 'root';
+	$DB = new PDO($server, $username, $password);
 
 	class StylistTest extends PHPUnit_Framework_TestCase
 	{
 
-		// function test_makeTitleCase_oneWord()
-		// {
-		// //Arrange
-		// $test_TitleCaseGenerator = new TitleCaseGenerator;
-		// $input = 'beowulf';
-		//
-		// //Act
-		// $result = $test_TitleCaseGenerator->makeTitleCase($input);
-		//
-		// //Assert
-		// $this->assertEquals('Beowulf', $result);
-		// }
+		function test_getStylistName()
+        {
+            //Arrange
+            $stylist_name = "Maurice";
+            $test_Stylist = new Stylist($stylist_name);
+
+            //Act
+            $result = $test_Stylist->getStylistName();
+
+            //Assert
+            $this->assertEquals($stylist_name, $result);
+        }
+
 	}
 
 ?>

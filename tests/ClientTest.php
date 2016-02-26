@@ -1,9 +1,9 @@
 <?php
 
-	require_once 'src/Client.php';
+	// require_once 'src/Client.php';
 
-	class ClientTest extends PHPUnit_Framework_TestCase
-	{
+	// class ClientTest extends PHPUnit_Framework_TestCase
+	// {
 
 		// function test_makeTitleCase_oneWord()
 		// {
@@ -17,6 +17,6 @@
 		// //Assert
 		// $this->assertEquals('Beowulf', $result);
 		// }
-	}
+	// }
 
 ?>
