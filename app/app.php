@@ -13,9 +13,16 @@
 
 	$app->register(new Silex\Provider\TwigServiceProvider(), array('twig.path' => __DIR__.'/../views'));
 
+	use Symfony\Component\HttpFoundation\Request;
+	Request::enableHttpMethodParameterOverride();
+
 	$app->get('/', function() use ($app) {
-		return $app['twig']->render('index.html.twig');
+		return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
 	});
+
+	$app->get("/stylists", function() use ($app) {
+        return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
+    });
 
 	return $app;
 
