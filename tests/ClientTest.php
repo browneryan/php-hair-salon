@@ -6,7 +6,7 @@
 	*/
 
 	require_once 'src/Client.php';
-	require_once 'src/Stylist.php';
+	require_once 'src/Client.php';
 
 	$server = 'mysql:host=localhost;dbname=hair_salon_test';
 	$username = 'root';
@@ -27,6 +27,20 @@
 
             //Assert
             $this->assertEquals($name, $result);
+        }
+
+		function test_getClientId()
+        {
+            //Arrange
+            $name = "Maurice";
+            $id = 1;
+            $test_Client = new Client($name, $id, $stylist_id = null);
+
+            //Act
+            $result = $test_Client->getClientId();
+
+            //Assert
+            $this->assertEquals(true, is_numeric($result));
         }
 	}
 
