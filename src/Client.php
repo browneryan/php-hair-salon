@@ -26,5 +26,10 @@
         {
             return $this->id;
         }
+
+        function getStylistId()
+        {
+            return $this->stylist_id;
+        }
     }
  ?>

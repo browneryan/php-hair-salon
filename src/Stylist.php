@@ -22,7 +22,7 @@
 			$this->stylist_name = (string) $new_stylist_name;
 		}
 
-		function getStylistId()
+		function getId()
 		{
 			return $this->id;
 		}
@@ -56,7 +56,7 @@
             $found_stylist = null;
             $stylists = Stylist::getAll();
             foreach($stylists as $stylist) {
-                $stylist_id = $stylist->getStylistId();
+                $stylist_id = $stylist->getId();
                 if ($stylist_id == $search_id) {
                   $found_stylist = $stylist;
                 }
@@ -66,13 +66,13 @@
 
 		function update($new_name)
 		{
-			$GLOBALS['DB']->exec("UPDATE stylists SET name = '{$new_name}' WHERE id = {$this->getStylistId()};");
+			$GLOBALS['DB']->exec("UPDATE stylists SET name = '{$new_name}' WHERE id = {$this->getId()};");
     		$this->setStylistName($new_name);
 		}
 
 		function delete()
 		{
-			$GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getStylistId()};");
+			$GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getId()};");
 		}
 
 	}

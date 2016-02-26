@@ -34,7 +34,7 @@
             $this->assertEquals($name, $result);
         }
 
-		function test_getStylistId()
+		function test_getId()
         {
             //Arrange
             $name = "Maurice";
@@ -42,7 +42,7 @@
             $test_Stylist = new Stylist($name, $id);
 
             //Act
-            $result = $test_Stylist->getStylistId();
+            $result = $test_Stylist->getId();
 
             //Assert
             $this->assertEquals(true, is_numeric($result));
@@ -108,7 +108,7 @@
 		    $test_Stylist2->save();
 
             //Act
-            $result = Stylist::find($test_Stylist->getStylistId());
+            $result = Stylist::find($test_Stylist->getId());
 
             //Assert
             $this->assertEquals($test_Stylist, $result);
