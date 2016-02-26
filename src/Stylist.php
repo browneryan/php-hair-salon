@@ -70,6 +70,11 @@
     		$this->setStylistName($new_name);
 		}
 
+		function delete()
+		{
+			$GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getStylistId()};");
+		}
+
 	}
 
  ?>

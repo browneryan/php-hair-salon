@@ -130,6 +130,23 @@
 		    $this->assertEquals("Candace", $test_Stylist->getStylistName());
 		}
 
+		function test_delete()
+		{
+		    //Arrange
+			$name = "Maurice";
+		    $name2 = "Erica";
+		    $test_Stylist = new Stylist($name);
+		    $test_Stylist->save();
+		    $test_Stylist2 = new Stylist($name2);
+		    $test_Stylist2->save();
+
+		    //Act
+		    $test_Stylist->delete();
+
+		    //Assert
+		    $this->assertEquals([$test_Stylist2], Stylist::getAll());
+		}
+
 	}
 
 ?>
