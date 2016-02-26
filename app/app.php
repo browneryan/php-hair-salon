@@ -24,6 +24,12 @@
         return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
     });
 
+	$app->post("/stylists", function() use ($app) {
+	   $cuisine = new Stylist($_POST['name']);
+	   $cuisine->save();
+	   return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
+   });
+
 	return $app;
 
 ?>
