@@ -66,9 +66,10 @@
 
 		function update($new_name)
 		{
-
+			$GLOBALS['DB']->exec("UPDATE stylists SET name = '{$new_name}' WHERE id = {$this->getStylistId()};");
+    		$this->setStylistName($new_name);
 		}
-		
+
 	}
 
  ?>
