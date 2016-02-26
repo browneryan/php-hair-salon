@@ -63,6 +63,12 @@
             }
             return $found_stylist;
         }
+
+		function update($new_name)
+		{
+
+		}
+		
 	}
 
  ?>
