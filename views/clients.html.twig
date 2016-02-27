@@ -6,13 +6,13 @@
     <title>That's My Cut!</title>
   </head>
   <body>
-    <div class="container">
+    <!-- <div class="container">
       <h1>That's My Cut!</h1>
       <h4>Current available stylists:</h4>
       {% if stylists is not empty %}
         <ul>
           {% for stylist in stylists %}
-            <li><a href="/stylists/{{ stylists.getId }}">{{ stylist.getStylistName }}</a></li>
+            <li><a href="/stylists/{{ stylist.getStylistId }}">{{ stylist.getStylistName }}</a></li>
           {% endfor %}
         </ul>
       {% else %}
@@ -25,6 +25,6 @@
         </br>
         <button type="submit" class="btn btn-primary" name="button">Submit</button>
       </form>
-    </div>
+    </div> -->
   </body>
 </html>
