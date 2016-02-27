@@ -91,9 +91,9 @@
 
 		    //Act
 		    Stylist::deleteAll();
+			$result = Stylist::getAll();
 
 		    //Assert
-		    $result = Stylist::getAll();
 		    $this->assertEquals([], $result);
 		}
 
