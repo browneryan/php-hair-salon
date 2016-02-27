@@ -175,7 +175,27 @@
 
 			//Assert
 			$this->assertEquals($test_Client, $result);
+		}
 
+		function test_update()
+		{
+			//Arrange
+			$name = "Maurice";
+			$test_Stylist = new Stylist($name, $id = null);
+			$test_Stylist->save();
+
+			$client_name = "Jake";
+			$stylist_id = $test_Stylist->getId();
+			$test_Client = new Client($client_name, $id, $stylist_id);
+			$test_Client->save();
+
+			$new_client_name = "Georgia";
+
+			//Act
+			$test_Client->update($new_client_name);
+
+			//Arrange
+			$this->assertEquals("Georgia", $test_Client->getClientName());
 		}
 
 	}
