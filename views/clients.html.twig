@@ -8,8 +8,8 @@
   <body>
     <div class="container">
       <h1>That's My Cut!</h1>
-      <h4>Clients:</h4>
       {% if clients is not empty %}
+      <h4>{{ stylist.getStylistName }}'s clients:</h4>
         <ul>
           {% for client in clients %}
             <li>{{ client.getClientName }}</li>
@@ -20,10 +20,11 @@
       {% endif %}
       <p>Add a client to this stylist:</p>
       <form action="/clients" method="post" class="form-group">
+        <input id="stylist_id" name="stylist_id" type="hidden" value="{{ stylist.getId() }}">
         <label for="name">Your name:</label>
         <input type="text" name="name" id="name" class="form-control">
         </br>
-        <button type="submit" class="btn btn-primary" name="button">Submit</button>
+        <button type="submit" class="btn btn-primary" name="button">Add client</button>
       </form>
     </div>
   </body>
