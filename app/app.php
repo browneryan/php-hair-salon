@@ -20,20 +20,27 @@
 		return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
 	});
 
-	$app->get("/stylists", function() use ($app) {
-        return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
-    });
-
-	$app->post("/stylists", function() use ($app) {
+	$app->post("/stylists", function() use ($app) {//displays stylists on index
 	   $cuisine = new Stylist($_POST['name']);
 	   $cuisine->save();
 	   return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
    });
 
-    $app->get("/clients/{id}", function($id) use ($app){
-        $client = Client::find($id);
-        return $app['twig']->render("clients.html.twig", array('clients' => $client));
+   $app->post("/delete_stylists", function() use ($app) {//deletes all stylists
+	   Stylist::deleteAll();
+	   return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
+   });
+
+    $app->get("/stylist/{id}", function($id) use ($app){
+        $stylist = Stylist::find($id);
+        return $app['twig']->render("clients.html.twig", array('stylists' => $stylist));
     });
+
+	// $app->get("/clients", function use ($app) {
+	// 	$client = new Client($_POST['name']);
+	// 	$client->save();
+	// 	return $app['twig']->render()
+	// });
 
 	return $app;
 
