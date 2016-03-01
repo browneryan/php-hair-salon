@@ -9,7 +9,7 @@
     <div class="container">
       <h1>That's My Cut!</h1>
       {% if clients is not empty %}
-      <h4>{{ stylist.getStylistName }}'s clients:</h4>
+      <h4><a href="/stylists/{{ stylist.getId }}/edit">{{ stylist.getStylistName }}'s</a> clients:</h4>
         <ul>
           {% for client in clients %}
             <li><a href="/clients/{{ client.getClientId }}/edit">{{ client.getClientName }}</a></li>
