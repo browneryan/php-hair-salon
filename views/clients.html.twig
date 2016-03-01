@@ -12,7 +12,7 @@
       <h4>{{ stylist.getStylistName }}'s clients:</h4>
         <ul>
           {% for client in clients %}
-            <li>{{ client.getClientName }}</li>
+            <li><a href="/clients/{{ client.getClientId }}/edit">{{ client.getClientName }}</a></li>
           {% endfor %}
         </ul>
       {% else %}
@@ -25,6 +25,11 @@
         <input type="text" name="name" id="name" class="form-control">
         </br>
         <button type="submit" class="btn btn-primary" name="button">Add client</button>
+      </form>
+      <form class = "form-inline" action="/" method="get">
+        <div class="form-group">
+          <button class = "btn btn-primary" type="submit">Home</button>
+        </div>
       </form>
     </div>
   </body>

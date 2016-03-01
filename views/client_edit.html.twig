@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <title>That's My Cut!</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Update {{ client.getClientName }} info</h1>
+      <form action="/clients/{{ client.getClientId }}/client_name" method="post">
+        <input name="_method" type="hidden" value="patch">
+        <div class="input-field">
+          <label for="client_name">Rename your client:</label>
+          <input id="client_name" name="client_name" type="text" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Update</button>
+      </form>
+    </div>
+  </body>
+</html>

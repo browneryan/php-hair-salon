@@ -45,30 +45,19 @@
         return $app['twig']->render('clients.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
 
-	// $app->post("/clients", function() use ($app) {
-	// 	$name = $_POST['name'];
-	// 	$stylist_id = $_POST['stylist_id'];
-    //     $client = new Client($name, $id = null, $stylist_id);
-    //     $client->save();
-	// 	$stylist = Stylist::find($id);
-	// 	return $app['twig']->render('clients.html.twig', array('stylists' => $stylist, 'clients' => $stylist->getClients()));
-    // });
+	$app->get("/clients/{id}/edit", function($id) use ($app) {
+        $client = Client::find($id);
+        return $app['twig']->render('client_edit.html.twig', array('client' => $client));
+    });
 
-	// $app->post("/clients", function() use ($app) {
-	// 	$stylist = Stylist::find($id);
-	// 	$name = $_POST['name'];
-	// 	$stylist_id = $stylist->getId();
-    //     $client = new Client($_POST['name'], $id = null, $stylist->getId());
-    //     $client->save();
-	// 	$all_clients = $stylist->getClients();
-	// 	return $app['twig']->render('clients.html.twig', array('stylists' => $stylist, 'clients' => $stylist->getClients()));
-    // });
-
-	// $app->get("/clients", function use ($app) {
-	// 	$client = new Client($_POST['name']);
-	// 	$client->save();
-	// 	return $app['twig']->render()
-	// });
+	$app->patch("/clients/{id}/client_name", function($id) use ($app) {
+        $new_name = $_POST['client_name'];
+        $client = Client::find($id);
+        $client->update($new_name);
+        $stylist_id = $client->getStylistId();
+        $stylist = Stylist::find($stylist_id);
+        return $app['twig']->render('clients.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
+        });
 
 	return $app;
 
