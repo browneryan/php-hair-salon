@@ -78,6 +78,15 @@
         ));
     });
 
+	$app->delete("/clients/{id}/delete", function($id) use ($app) {
+        $client = Client::find($id);
+        $stylist_id = $client->getStylistId();
+        $stylist = Stylist::find($stylist_id);
+        $client->delete();
+        return $app['twig']->render('clients.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
+    });
+
+
 	return $app;
 
 ?>

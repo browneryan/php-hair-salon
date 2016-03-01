@@ -16,6 +16,10 @@
         </div>
         <button class="btn btn-primary" type="submit">Update</button>
       </form>
+      <form action="/clients/{{ client.getClientId }}/delete" method="post">
+        <input name="_method" type="hidden" value="delete">
+        <button class="btn btn-danger" type="submit" name="button">Delete client</button>
+      </form>
       <form class = "form-inline" action="/" method="get">
         <div class="form-group">
           <button class = "btn btn-primary" type="submit">Home</button>
