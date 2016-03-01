@@ -6,25 +6,25 @@
     <title>That's My Cut!</title>
   </head>
   <body>
-    <!-- <div class="container">
+    <div class="container">
       <h1>That's My Cut!</h1>
-      <h4>Current available stylists:</h4>
-      {% if stylists is not empty %}
+      <h4>Clients:</h4>
+      {% if clients is not empty %}
         <ul>
-          {% for stylist in stylists %}
-            <li><a href="/stylists/{{ stylist.getStylistId }}">{{ stylist.getStylistName }}</a></li>
+          {% for client in clients %}
+            <li>{{ client.getClientName }}</li>
           {% endfor %}
         </ul>
       {% else %}
-        <p>There are no stylists yet!</p>
+        <p>There are no clients yet!</p>
       {% endif %}
-      <p>If you are a stylist, sign up!</p>
-      <form action="/stylists" method="post" class="form-group">
+      <p>Add a client to this stylist:</p>
+      <form action="/clients" method="post" class="form-group">
         <label for="name">Your name:</label>
         <input type="text" name="name" id="name" class="form-control">
         </br>
         <button type="submit" class="btn btn-primary" name="button">Submit</button>
       </form>
-    </div> -->
+    </div>
   </body>
 </html>
